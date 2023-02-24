@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">pl1Dadm</string>
+    <string name="textQuotaion">Get a new quotation</string>
+    <string name="textAbout">About</string>
+    <string name="textFavouriteQuotaion">Favourite quotations</string>
+    <string name="textSettings">Settings</string>
+</resources>

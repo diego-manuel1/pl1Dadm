@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newQuotationFragment">
+
+    <dialog
+        android:id="@+id/aboutDialogFragment"
+        android:name="dadm.dmfuegar.pl1dadm.ui.about.AboutDialogFragment"
+        android:label="@string/textAbout" />
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="dadm.dmfuegar.pl1dadm.ui.favourites.FavouriteFragment"
+        android:label="@string/textFavouriteQuotaion" />
+    <fragment
+        android:id="@+id/newQuotationFragment"
+        android:name="dadm.dmfuegar.pl1dadm.ui.newquotation.NewQuotationFragment"
+        android:label="@string/textQuotaion" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="dadm.dmfuegar.pl1dadm.ui.settings.SettingsFragment"
+        android:label="@string/textSettings" />
+</navigation>
