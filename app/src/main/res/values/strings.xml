@@ -4,4 +4,9 @@
     <string name="textAbout">About</string>
     <string name="textFavouriteQuotaion">Favourite quotations</string>
     <string name="textSettings">Settings</string>
+    <string name="textAboutInfo">pl1Dadm by Diego Manuel\n\ndmfuegar@inf.upv.es\n\nDevelopede for Dadm 2023</string>
+    <string name="aboutDescription">Icono de la aplicación</string>
+    <string name="refreshDescription">Botón para refrescar la pantalla</string>
+    <string name="welcomeMessage">Hello
+%1s!,\n\nRefresh to get a new quotation\n\n(swipe down or options menu)</string>
 </resources>

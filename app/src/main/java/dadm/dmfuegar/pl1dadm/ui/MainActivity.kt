@@ -16,13 +16,13 @@ import dadm.dmfuegar.pl1dadm.R
 import dadm.dmfuegar.pl1dadm.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), MenuProvider {
-    private var binding: ActivityMainBinding? = null
-    private var navController: NavController? = null
+    private var navControllerProp: NavController? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navController = binding.fragmentContainer.getFragment<NavHostFragment>().navController
+        val navController = binding.fragmentContainer.getFragment<NavHostFragment>().navController
+        navControllerProp = navController
         binding.navView as NavigationBarView
         binding.navView.setupWithNavController(navController)
         setSupportActionBar(binding.toolbar)
@@ -37,6 +37,6 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        navController.navigate(R.id.aboutDialogFragment)
+        navControllerProp.navigate(R.id.aboutDialogFragment)
     }
 }
