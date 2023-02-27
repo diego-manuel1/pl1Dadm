@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -43,6 +44,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/refresh"
             android:layout_gravity="bottom|end"
-            android:contentDescription="@string/refreshDescription"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+            android:contentDescription="@string/refreshDescription">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/refresh"
+            android:layout_gravity="bottom|end"
+            android:contentDescription="@string/addDescription">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </FrameLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
