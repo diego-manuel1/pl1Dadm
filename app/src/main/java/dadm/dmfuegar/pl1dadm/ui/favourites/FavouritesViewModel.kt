@@ -10,6 +10,8 @@ class FavouritesViewModel : ViewModel() {
     val favouriteQuotations : LiveData<List<Quotation>>
     get() = _favouriteQuotations
     fun getFavouriteQuotations():List<Quotation>{
+    }
+    fun deleteQuotationAtPosition(position: Int){
 
     }
 }

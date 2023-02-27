@@ -16,7 +16,7 @@ import dadm.dmfuegar.pl1dadm.R
 import dadm.dmfuegar.pl1dadm.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), MenuProvider {
-    private var navControllerProp: NavController? = null
+    private lateinit var navControllerProp: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        navControllerProp.navigate(R.id.aboutDialogFragment)
+        if(menuItem.itemId == R.id.aboutDialogFragment) {
+            navControllerProp.navigate(R.id.aboutDialogFragment)
+            return true
+        }
+        return false
     }
 }
