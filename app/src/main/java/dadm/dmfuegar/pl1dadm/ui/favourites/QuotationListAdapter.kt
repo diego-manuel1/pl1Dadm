@@ -12,7 +12,7 @@ class QuotationListAdapter(val quotDiff : QuotationDiff) : ListAdapter<Quotation
     class ViewHolder(val binding: QuotationItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(q: Quotation){
             binding.textAuthor.text=q.author
-            binding.textCita.text=q.nombre
+            binding.textCita.text=q.content
         }
 
     }

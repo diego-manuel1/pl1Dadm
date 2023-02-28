@@ -48,18 +48,10 @@
                 app:layout_constraintTop_toTopOf="parent"></com.google.android.material.textview.MaterialTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/refreshButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/refresh"
-            android:layout_gravity="bottom|end"
-            android:contentDescription="@string/refreshDescription">
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/refresh"
+            android:src="@drawable/add_cita"
             android:layout_gravity="bottom|end"
             android:contentDescription="@string/addDescription">
         </com.google.android.material.floatingactionbutton.FloatingActionButton>

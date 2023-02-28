@@ -64,8 +64,11 @@ class NewQuotationFragment: Fragment(), MenuProvider{
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        TODO("Not yet implemented")
-        //getNewQuotation()
+        if(menuItem.itemId == R.id.refreshItem) {
+            viewModel.getNewQuotation()
+            return true
+        }
+        return false
     }
 
 
