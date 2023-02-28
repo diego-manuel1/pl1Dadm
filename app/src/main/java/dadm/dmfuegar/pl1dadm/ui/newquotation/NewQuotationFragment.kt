@@ -20,14 +20,28 @@ class NewQuotationFragment: Fragment(), MenuProvider{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentNewQuotationBinding.bind(view)
-        binding.textView.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
-        binding.swipe.isRefreshing = isRefreshing
         binding.swipe.setOnRefreshListener {
             viewModel.getNewQuotation()
         }
+        viewModel.isGreetingsVisible.observe(viewLifecycleOwner){visible->
+            binding.welcomeMessage.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+        }
         viewModel.userName.observe(viewLifecycleOwner){userName->
-            binding.textView.text =
+            binding.welcomeMessage.text =
                 getString(R.string.welcomeMessage, userName)
+        }
+        viewModel.isRefreshing.observe(viewLifecycleOwner){isRefreshing->
+            binding.swipe.isRefreshing = isRefreshing
+        }
+        viewModel.quotation.observe(viewLifecycleOwner){q->
+            binding.textCita.text = q.content
+            val author = q.author
+            if(author.equals("")) {
+                binding.textAuthor.text = "Anonymous"
+            }
+            else{
+                binding.textAuthor.text = author
+            }
         }
         requireActivity().addMenuProvider(this,
             viewLifecycleOwner, Lifecycle.State.RESUMED)
