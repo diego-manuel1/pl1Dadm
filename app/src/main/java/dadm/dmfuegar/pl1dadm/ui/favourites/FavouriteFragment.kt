@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -58,9 +59,10 @@ class FavouriteFragment: Fragment(), DeleteAllDialogFragment.ButtonManager, Menu
             else{
 
                 try{
-                    startActivity(Intent()
+                    startActivity(
+                        view.context, Intent()
                         .setAction(Intent.ACTION_VIEW)
-                        .setData(Uri.parse("https://en.wikipedia.org/wiki/Special:Search?search=" + author)))
+                        .setData(Uri.parse("https://en.wikipedia.org/wiki/Special:Search?search=" + author)), null)
                 }
                 catch (e: ActivityNotFoundException) {
                     val snackbarException = Snackbar.make(view, "Error. We couldn't find the information", 4)
@@ -79,9 +81,12 @@ class FavouriteFragment: Fragment(), DeleteAllDialogFragment.ButtonManager, Menu
         viewModel.isDeleteAllVisible.observe(viewLifecycleOwner){
             requireActivity().invalidateMenu()
         }
-        val itemClicked = Click(view,)
-        val adapter = QuotationListAdapter(QuotationListAdapter.QuotationDiff, itemClicked)
+        val itemClicked = Click(view)
+        val adapter = QuotationListAdapter( itemClicked)
         _binding!!.favouriteView.adapter = adapter
+        viewModel.favouriteQuotations.observe(viewLifecycleOwner){list->
+            adapter.submitList(list)
+        }
     }
 
     override fun onDestroyView() {

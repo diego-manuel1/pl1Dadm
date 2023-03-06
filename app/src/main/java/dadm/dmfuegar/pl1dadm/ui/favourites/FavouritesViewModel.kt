@@ -14,8 +14,8 @@ class FavouritesViewModel : ViewModel() {
         Transformations.map(favouriteQuotations) { it.isNotEmpty() }
     private fun getFavouriteQuotations():List<Quotation>{
         var list = mutableListOf<Quotation>()
-        list.add(Quotation(1, "Hola", "Albert Einstein"))
-        list.add(Quotation(1, "Adiós", "Anonymous"))
+        list.add(Quotation("1", "Hola", "Albert Einstein"))
+        list.add(Quotation("2", "Adiós", "Anonymous"))
         for(i in 3 .. 20){
             val num = (0..99).random().toString()
             val q = Quotation(num, "Quotation text #$num", "Author #$num")
