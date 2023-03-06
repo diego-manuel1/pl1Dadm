@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">pl1Dadm</string>
+    <string name="textQuotaion">Obtener nueva cita</string>
+    <string name="textAbout">Acerca de</string>
+    <string name="textFavouriteQuotaion">Citas favoritas</string>
+    <string name="textSettings">Opicones</string>
+</resources>

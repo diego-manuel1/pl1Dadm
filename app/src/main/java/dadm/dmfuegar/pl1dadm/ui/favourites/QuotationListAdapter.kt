@@ -8,14 +8,20 @@ import androidx.recyclerview.widget.RecyclerView
 import dadm.dmfuegar.pl1dadm.databinding.QuotationItemBinding
 import domain.model.Quotation
 
-class QuotationListAdapter(val quotDiff : QuotationDiff) : ListAdapter<Quotation, QuotationListAdapter.ViewHolder>() {
-    class ViewHolder(val binding: QuotationItemBinding) : RecyclerView.ViewHolder(binding.root){
+class QuotationListAdapter(val quotDiff : QuotationDiff, val itemClicked: ItemClicked) : ListAdapter<Quotation, QuotationListAdapter.ViewHolder>() {
+    class ViewHolder(val binding: QuotationItemBinding, val itemClicked: ItemClicked) : RecyclerView.ViewHolder(binding.root){
         fun bind(q: Quotation){
             binding.textAuthor.text=q.author
             binding.textCita.text=q.content
         }
+        init {
+            binding.root.setOnClickListener {
+                itemClicked.onClick(binding.textAuthor.text.toString())
+            }
+        }
 
     }
+    interface ItemClicked { fun onClick(author: String) }
     object QuotationDiff : DiffUtil.ItemCallback<Quotation>() {
         override fun areContentsTheSame(oldItem: Quotation, newItem: Quotation): Boolean {
             return oldItem == newItem

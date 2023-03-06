@@ -16,6 +16,15 @@ class DeleteAllDialogFragment(val buttonManager: ButtonManager): DialogFragment(
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return AlertDialog.Builder()
+        return AlertDialog.Builder(requireContext())
+            .setTitle("Delete all favourite quotations")
+            .setMessage("Do you really want to delete all quotations?")
+            .setPositiveButton("Yes"){_,_->
+                buttonManager.buttonPositive()
+            }
+            .setNegativeButton("No"){_,_->
+                buttonManager.buttonNegative()
+            }
+            .create()
     }
 }
