@@ -21,13 +21,12 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val navController = binding.fragmentContainer.getFragment<NavHostFragment>().navController
-        navControllerProp = navController
-        binding.navView as NavigationBarView
-        binding.navView.setupWithNavController(navController)
         setSupportActionBar(binding.toolbar)
-        setupActionBarWithNavController(navController,
-            AppBarConfiguration(navController.graph)
+        navControllerProp = binding.fragmentContainer.getFragment<NavHostFragment>().navController
+        (binding.navView as NavigationBarView).setupWithNavController(navControllerProp)
+
+        setupActionBarWithNavController(navControllerProp,
+            AppBarConfiguration(navControllerProp.graph)
         )
         addMenuProvider(this)
     }

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/newQuotationFragment">
 
     <dialog
         android:id="@+id/aboutDialogFragment"
+
         android:name="dadm.dmfuegar.pl1dadm.ui.about.AboutDialogFragment"
         android:label="@string/textAbout" />
     <fragment
@@ -14,6 +16,7 @@
         android:label="@string/textFavouriteQuotaion" />
     <fragment
         android:id="@+id/newQuotationFragment"
+        tools:layout="@layout/fragment_new_quotation"
         android:name="dadm.dmfuegar.pl1dadm.ui.newquotation.NewQuotationFragment"
         android:label="@string/textQuotaion" />
     <fragment

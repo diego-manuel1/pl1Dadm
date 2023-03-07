@@ -21,7 +21,7 @@ import com.google.android.material.snackbar.Snackbar
 import dadm.dmfuegar.pl1dadm.R
 import dadm.dmfuegar.pl1dadm.databinding.FragmentFavouritesBinding
 
-class FavouriteFragment: Fragment(), DeleteAllDialogFragment.ButtonManager, MenuProvider{
+class FavouriteFragment: Fragment(R.layout.fragment_favourites), DeleteAllDialogFragment.ButtonManager, MenuProvider{
     private var _binding: FragmentFavouritesBinding? = null
             private val binding: FragmentFavouritesBinding
             get() = _binding!!

@@ -12,7 +12,7 @@ import androidx.lifecycle.Lifecycle
 import dadm.dmfuegar.pl1dadm.R
 import dadm.dmfuegar.pl1dadm.databinding.FragmentNewQuotationBinding
 
-class NewQuotationFragment: Fragment(), MenuProvider{
+class NewQuotationFragment: Fragment(R.layout.fragment_new_quotation), MenuProvider{
     private var _binding: FragmentNewQuotationBinding? = null
             private val binding: FragmentNewQuotationBinding
             get() = _binding!!
