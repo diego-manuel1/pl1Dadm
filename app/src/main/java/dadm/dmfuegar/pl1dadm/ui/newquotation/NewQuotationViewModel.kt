@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import domain.model.Quotation
 
 class NewQuotationViewModel : ViewModel() {
-    private val _userName = MutableLiveData<String>()
+    private val _userName = MutableLiveData<String>(getUserName())
     val userName : LiveData<String>
     get() = _userName
 

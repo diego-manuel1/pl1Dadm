@@ -59,7 +59,7 @@ class NewQuotationFragment: Fragment(R.layout.fragment_new_quotation), MenuProvi
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.menu_about,
+        menuInflater.inflate(R.menu.menu_new_quotation,
             menu)
     }
 

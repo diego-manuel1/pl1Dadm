@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import domain.model.Quotation
 
 class FavouritesViewModel : ViewModel() {
-    private val _favouriteQuotations = MutableLiveData<List<Quotation>>()
+    private val _favouriteQuotations = MutableLiveData<List<Quotation>>(getFavouriteQuotations())
     val favouriteQuotations : LiveData<List<Quotation>>
     get() = _favouriteQuotations
     val isDeleteAllVisible =
