@@ -53,7 +53,7 @@ class FavouriteFragment: Fragment(R.layout.fragment_favourites), DeleteAllDialog
     class Click(val view: View): QuotationListAdapter.ItemClicked{
         override fun onClick(author: String) {
             if(author.equals("Anonymous")){
-                val snackbar = Snackbar.make(view, "The author is anonymous. Impossible to find information", 4)
+                val snackbar = Snackbar.make(view, "The author is anonymous. Impossible to find information", 1000)
                 snackbar.show()
             }
             else{
@@ -65,7 +65,7 @@ class FavouriteFragment: Fragment(R.layout.fragment_favourites), DeleteAllDialog
                         .setData(Uri.parse("https://en.wikipedia.org/wiki/Special:Search?search=" + author)), null)
                 }
                 catch (e: ActivityNotFoundException) {
-                    val snackbarException = Snackbar.make(view, "Error. We couldn't find the information", 4)
+                    val snackbarException = Snackbar.make(view, "Error. We couldn't find the information", 1000)
                     snackbarException.show()
                 }
             }
