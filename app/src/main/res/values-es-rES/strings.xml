@@ -10,4 +10,6 @@
     <string name="refreshDescription">Botón para refrescar la pantalla</string>
     <string name="welcomeMessage">Hola %1s!,\\n\\nRefresca para obtener una nueva cita\\n\\n(arrastra abajo o menu de opciones)</string>
     <string name="addDescription">Botón para añadir a favoritos</string>
+    <string name="authorAnonymous">The author is anonymous. Impossible to find information</string>
+    <string name="errorFindingInformation">Error. We couldn\'t find the information</string>
 </resources>

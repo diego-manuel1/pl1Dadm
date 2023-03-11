@@ -10,4 +10,6 @@
     <string name="welcomeMessage">Hello
 %1s!,\n\nRefresh to get a new quotation\n\n(swipe down or options menu)</string>
     <string name="addDescription">Button to add in favourites</string>
+    <string name="authorAnonymous">The author is anonymous. Impossible to find information</string>
+    <string name="errorFindingInformation">Error. We couldn't find the information</string>
 </resources>
