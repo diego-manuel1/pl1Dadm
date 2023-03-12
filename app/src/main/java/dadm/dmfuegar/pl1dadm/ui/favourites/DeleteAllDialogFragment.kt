@@ -4,9 +4,12 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import dadm.dmfuegar.pl1dadm.R
 
-class DeleteAllDialogFragment(val buttonManager: ButtonManager): DialogFragment() {
-    interface ButtonManager{
+class DeleteAllDialogFragment(): DialogFragment() {
+    /*interface ButtonManager{
         fun buttonPositive(){
 
         }
@@ -14,16 +17,18 @@ class DeleteAllDialogFragment(val buttonManager: ButtonManager): DialogFragment(
 
         }
     }
-
+*/
+    private val viewModel: FavouritesViewModel by activityViewModels()
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(requireContext())
-            .setTitle("Delete all favourite quotations")
-            .setMessage("Do you really want to delete all quotations?")
-            .setPositiveButton("Yes"){_,_->
-                buttonManager.buttonPositive()
+            .setTitle(R.string.DeleteAllTitle)
+            .setMessage(R.string.DeletaAllMessage)
+            .setPositiveButton(R.string.YesButton){_,_->
+                //buttonManager.buttonPositive()
+                viewModel.deleteAllQuotations()
+                dismiss()
             }
-            .setNegativeButton("No"){_,_->
-                buttonManager.buttonNegative()
+            .setNegativeButton(R.string.NoButton){_,_->
             }
             .create()
     }

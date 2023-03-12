@@ -12,6 +12,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -21,11 +22,11 @@ import com.google.android.material.snackbar.Snackbar
 import dadm.dmfuegar.pl1dadm.R
 import dadm.dmfuegar.pl1dadm.databinding.FragmentFavouritesBinding
 
-class FavouriteFragment: Fragment(R.layout.fragment_favourites), DeleteAllDialogFragment.ButtonManager, MenuProvider{
+class FavouriteFragment: Fragment(R.layout.fragment_favourites), MenuProvider{
     private var _binding: FragmentFavouritesBinding? = null
             private val binding: FragmentFavouritesBinding
             get() = _binding!!
-    private val viewModel: FavouritesViewModel by viewModels()
+    private val viewModel: FavouritesViewModel by activityViewModels()
     private val touchHelper = ItemTouchHelper(object:ItemTouchHelper.SimpleCallback(0,END){
         override fun onMove(
             recyclerView: RecyclerView,
@@ -95,14 +96,14 @@ class FavouriteFragment: Fragment(R.layout.fragment_favourites), DeleteAllDialog
         _binding = null
     }
 
-    override fun buttonPositive() {
+  /*  override fun buttonPositive() {
         super.buttonPositive()
         viewModel.deleteAllQuotations()
     }
 
     override fun buttonNegative() {
         super.buttonNegative()
-    }
+    }*/
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(
@@ -112,7 +113,7 @@ class FavouriteFragment: Fragment(R.layout.fragment_favourites), DeleteAllDialog
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         if(menuItem.itemId == R.id.deleteFavouriteItem) {
-            DeleteAllDialogFragment(this).show(childFragmentManager, null)
+            DeleteAllDialogFragment().show(childFragmentManager, null)
             return true
         }
         return false

@@ -10,6 +10,10 @@
     <string name="refreshDescription">Botón para refrescar la pantalla</string>
     <string name="welcomeMessage">Hola %1s!,\\n\\nRefresca para obtener una nueva cita\\n\\n(arrastra abajo o menu de opciones)</string>
     <string name="addDescription">Botón para añadir a favoritos</string>
-    <string name="authorAnonymous">The author is anonymous. Impossible to find information</string>
-    <string name="errorFindingInformation">Error. We couldn\'t find the information</string>
+    <string name="authorAnonymous">El autor es anónimo. Imposible encontrar información</string>
+    <string name="errorFindingInformation">Error. No hemos podido encontrar la información</string>
+    <string name="DeleteAllTitle">Borrar todas las citas favoritas</string>
+    <string name="DeletaAllMessage">¿Estás seguro de querer borrar todas las citas?</string>
+    <string name="YesButton">Sí</string>
+    <string name="NoButton">No</string>
 </resources>

@@ -11,5 +11,9 @@
 %1s!,\n\nRefresh to get a new quotation\n\n(swipe down or options menu)</string>
     <string name="addDescription">Button to add in favourites</string>
     <string name="authorAnonymous">The author is anonymous. Impossible to find information</string>
-    <string name="errorFindingInformation">Error. We couldn't find the information</string>
+    <string name="errorFindingInformation">Error. We couldn\'t find the information</string>
+    <string name="DeleteAllTitle">Delete all favourite quotations</string>
+    <string name="DeletaAllMessage">Do you really want to delete all quotations?</string>
+    <string name="YesButton">Yes</string>
+    <string name="NoButton">No</string>
 </resources>
