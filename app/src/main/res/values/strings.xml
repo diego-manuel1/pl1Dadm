@@ -17,4 +17,5 @@
     <string name="YesButton">Yes</string>
     <string name="NoButton">No</string>
     <string name="newQuotationException">Exception obtaining a new quotation</string>
+    <string name="NoInternetException">There is not connection</string>
 </resources>

@@ -6,8 +6,10 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import domain.model.Quotation
+import javax.inject.Inject
+
 @HiltViewModel
-class FavouritesViewModel : ViewModel() {
+class FavouritesViewModel @Inject constructor() : ViewModel() {
     private val _favouriteQuotations = MutableLiveData<List<Quotation>>(getFavouriteQuotations())
     val favouriteQuotations : LiveData<List<Quotation>>
     get() = _favouriteQuotations
