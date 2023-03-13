@@ -16,4 +16,5 @@
     <string name="DeletaAllMessage">Do you really want to delete all quotations?</string>
     <string name="YesButton">Yes</string>
     <string name="NoButton">No</string>
+    <string name="newQuotationException">Exception obtaining a new quotation</string>
 </resources>

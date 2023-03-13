@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import domain.model.Quotation
-
+@HiltViewModel
 class FavouritesViewModel : ViewModel() {
     private val _favouriteQuotations = MutableLiveData<List<Quotation>>(getFavouriteQuotations())
     val favouriteQuotations : LiveData<List<Quotation>>
