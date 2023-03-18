@@ -18,4 +18,9 @@
     <string name="NoButton">No</string>
     <string name="newQuotationException">Excepción obteniendo una nueva cita</string>
     <string name="NoInternetException">No hay conexión</string>
+    <string name="EnglishLanguage">Inglés</string>
+    <string name="RussianLanguage">Ruso</string>
+    <string name="titleUserPreference">Nombre de usuario</string>
+    <string name="titleSelectorLanguage">Selección de lenguaje</string>
+    <string name="hintUserPreference">Introduce un nombre de usuario</string>
 </resources>

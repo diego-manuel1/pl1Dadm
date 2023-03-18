@@ -18,4 +18,9 @@
     <string name="NoButton">No</string>
     <string name="newQuotationException">Exception obtaining a new quotation</string>
     <string name="NoInternetException">There is not connection</string>
+    <string name="EnglishLanguage">English</string>
+    <string name="RussianLanguage">Russian</string>
+    <string name="titleUserPreference">User Name</string>
+    <string name="titleSelectorLanguage">Language Selection</string>
+    <string name="hintUserPreference">Introduce a user name</string>
 </resources>

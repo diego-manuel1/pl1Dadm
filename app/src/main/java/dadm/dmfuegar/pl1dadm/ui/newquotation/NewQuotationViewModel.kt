@@ -3,7 +3,7 @@ package dadm.dmfuegar.pl1dadm.ui.newquotation
 import androidx.lifecycle.*
 import dadm.dmfuegar.pl1dadm.data.newquotation.NewQuotationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import domain.model.Quotation
+import dadm.dmfuegar.pl1dadm.domain.model.Quotation
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -46,6 +46,7 @@ class NewQuotationViewModel @Inject constructor(val newQuotationRepos: NewQuotat
     }*/
     //versión de getNewQuotation con el repositorio
     fun getNewQuotation(){
+       resetError()
        viewModelScope.launch{
            _isRefreshing.value = true
            newQuotationRepos.getNewQuotation().fold(onSuccess = {q->

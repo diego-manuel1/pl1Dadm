@@ -1,14 +1,15 @@
 package dadm.dmfuegar.pl1dadm.data.newquotation
 
+import dadm.dmfuegar.pl1dadm.data.newquotation.model.toDomain
 import dadm.dmfuegar.pl1dadm.utils.NoInternetException
-import domain.model.Quotation
+import dadm.dmfuegar.pl1dadm.domain.model.Quotation
 import javax.inject.Inject
 
 
 class NewQuotationRepositoryImpl @Inject constructor(val newQuotationDataSource: NewQuotationDataSource, val connectivityChecker: ConnectivityChecker): NewQuotationRepository {
     override suspend fun getNewQuotation(): Result<Quotation> {
         if(connectivityChecker.isConnectionAvalilable())
-            return newQuotationDataSource.getQuotation()
+            return newQuotationDataSource.getQuotation(arrayOf("en","ru", "xx").random()).toDomain()
         else{
             return Result.failure(NoInternetException())
         }

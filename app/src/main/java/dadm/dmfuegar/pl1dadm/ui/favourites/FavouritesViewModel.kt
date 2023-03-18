@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import domain.model.Quotation
+import dadm.dmfuegar.pl1dadm.domain.model.Quotation
 import javax.inject.Inject
 
 @HiltViewModel
