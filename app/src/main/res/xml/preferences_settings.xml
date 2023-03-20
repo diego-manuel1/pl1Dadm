@@ -10,7 +10,7 @@
 </EditTextPreference>
     <ListPreference
         android:title="@string/titleSelectorLanguage"
-        android:key=""
+        android:key="languageSelector"
         app:useSimpleSummaryProvider="true"
         android:defaultValue="en">
 
