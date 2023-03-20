@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class FavouritesRepositoryImpl @Inject constructor(val favouritesDataSource: FavouritesDataSource): FavouritesRepository {
-    override fun addQuotation(quotation: Quotation) {
+    override suspend fun addQuotation(quotation: Quotation) {
         favouritesDataSource.addQuotation(quotation)
     }
 
@@ -29,7 +29,7 @@ class FavouritesRepositoryImpl @Inject constructor(val favouritesDataSource: Fav
         favouritesDataSource.removeAllFavourites()
     }
 
-    override fun removeQuotation(quotation: Quotation) {
+    override suspend fun removeQuotation(quotation: Quotation) {
         favouritesDataSource.removeQuotation(quotation)
     }
 }

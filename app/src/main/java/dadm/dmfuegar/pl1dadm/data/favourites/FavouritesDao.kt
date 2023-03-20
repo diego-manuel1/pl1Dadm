@@ -3,7 +3,7 @@ package dadm.dmfuegar.pl1dadm.data.favourites
 import androidx.room.*
 import dadm.dmfuegar.pl1dadm.data.favourites.FavouritesContract.FavouritesTable.FAVOURITES_COL_ID
 import dadm.dmfuegar.pl1dadm.data.favourites.FavouritesContract.FavouritesTable.FAVOURITES_TABLE_NAME
-import dadm.dmfuegar.pl1dadm.data.newquotation.model.QuotationDto
+import dadm.dmfuegar.pl1dadm.data.favourites.model.QuotationDto
 import dadm.dmfuegar.pl1dadm.domain.model.Quotation
 import kotlinx.coroutines.flow.Flow
 
