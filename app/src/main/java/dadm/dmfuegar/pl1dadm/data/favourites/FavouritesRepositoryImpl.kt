@@ -2,6 +2,7 @@ package dadm.dmfuegar.pl1dadm.data.favourites
 
 import dadm.dmfuegar.pl1dadm.data.favourites.model.QuotationDto
 import dadm.dmfuegar.pl1dadm.data.favourites.model.toDomain
+import dadm.dmfuegar.pl1dadm.data.favourites.model.toDto
 import dadm.dmfuegar.pl1dadm.domain.model.Quotation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -9,7 +10,7 @@ import javax.inject.Inject
 
 class FavouritesRepositoryImpl @Inject constructor(val favouritesDataSource: FavouritesDataSource): FavouritesRepository {
     override suspend fun addQuotation(quotation: Quotation) {
-        favouritesDataSource.addQuotation(quotation)
+        favouritesDataSource.addQuotation(quotation.toDto())
     }
 
     override fun obtainConcreteFavourite(id: String): Flow<Quotation> {
@@ -30,6 +31,6 @@ class FavouritesRepositoryImpl @Inject constructor(val favouritesDataSource: Fav
     }
 
     override suspend fun removeQuotation(quotation: Quotation) {
-        favouritesDataSource.removeQuotation(quotation)
+        favouritesDataSource.removeQuotation(quotation.toDto())
     }
 }

@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class FavouritesDataSourceImpl @Inject constructor(val favouritesDao: FavouritesDao): FavouritesDataSource {
-    override suspend fun addQuotation(quotation: Quotation) {
-        favouritesDao.addQuotation(quotation)
+    override suspend fun addQuotation(quotationDto: QuotationDto) {
+        favouritesDao.addQuotation(quotationDto)
     }
 
     override fun obtainConcreteFavourite(id: String): Flow<QuotationDto> {
@@ -22,7 +22,7 @@ class FavouritesDataSourceImpl @Inject constructor(val favouritesDao: Favourites
         favouritesDao.removeAllFavourites()
     }
 
-    override suspend fun removeQuotation(quotation: Quotation) {
-        favouritesDao.removeQuotation(quotation)
+    override suspend fun removeQuotation(quotationDto: QuotationDto) {
+        favouritesDao.removeQuotation(quotationDto)
     }
 }
