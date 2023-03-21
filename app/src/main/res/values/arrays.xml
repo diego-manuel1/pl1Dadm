@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="languageName">
-        <string>English</string>
-        <string>Russian</string>
+        <item>@string/EnglishLanguage</item>
+        <item>@string/RussianLanguage</item>
     </string-array>
     <string-array name="languagePrefix">
-        <string>en</string>
-        <string>ru</string>
+        <item>@string/EnglishPrefix</item>
+        <item>@string/RussianPrefix</item>
     </string-array>
 </resources>

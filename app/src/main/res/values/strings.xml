@@ -20,6 +20,8 @@
     <string name="NoInternetException">There is not connection</string>
     <string name="EnglishLanguage">English</string>
     <string name="RussianLanguage">Russian</string>
+    <string name="EnglishPrefix" translatable="false">en</string>
+    <string name="RussianPrefix" translatable="false">ru</string>
     <string name="titleUserPreference">User Name</string>
     <string name="titleSelectorLanguage">Language Selection</string>
     <string name="hintUserPreference">Introduce a user name</string>
