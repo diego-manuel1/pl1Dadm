@@ -10,7 +10,7 @@ class FavouritesDataSourceImpl @Inject constructor(val favouritesDao: Favourites
         favouritesDao.addQuotation(quotationDto)
     }
 
-    override fun obtainConcreteFavourite(id: String): Flow<QuotationDto> {
+    override fun obtainConcreteFavourite(id: String): Flow<QuotationDto?> {
         return favouritesDao.obtainConcreteFavourite(id)
     }
 

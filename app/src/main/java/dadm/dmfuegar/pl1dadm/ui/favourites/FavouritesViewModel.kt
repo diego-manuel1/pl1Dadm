@@ -1,21 +1,21 @@
 package dadm.dmfuegar.pl1dadm.ui.favourites
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import dadm.dmfuegar.pl1dadm.data.favourites.FavouritesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dadm.dmfuegar.pl1dadm.domain.model.Quotation
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FavouritesViewModel @Inject constructor() : ViewModel() {
-    private val _favouriteQuotations = MutableLiveData<List<Quotation>>(getFavouriteQuotations())
+class FavouritesViewModel @Inject constructor(val favouritesRepository: FavouritesRepository) : ViewModel() {
+    /*private val _favouriteQuotations = MutableLiveData<List<Quotation>>(getFavouriteQuotations())
     val favouriteQuotations : LiveData<List<Quotation>>
-    get() = _favouriteQuotations
+    get() = _favouriteQuotations*/
+    val favouriteQuotations = favouritesRepository.obtainFavourites().asLiveData()
     val isDeleteAllVisible =
         Transformations.map(favouriteQuotations) { it.isNotEmpty() }
-    private fun getFavouriteQuotations():List<Quotation>{
+    /*private fun getFavouriteQuotations():List<Quotation>{
         var list = mutableListOf<Quotation>()
         list.add(Quotation("1", "Hola", "Albert Einstein"))
         list.add(Quotation("2", "Adiós", "Anonymous"))
@@ -25,14 +25,20 @@ class FavouritesViewModel @Inject constructor() : ViewModel() {
             list.add(q)
         }
         return list
-    }
+    }*/
     fun deleteQuotationAtPosition(position: Int){
-        val list = _favouriteQuotations.value?.toMutableList()
+       /* val list = _favouriteQuotations.value?.toMutableList()
         list?.removeAt(position)
-        _favouriteQuotations.value = list!!
+        _favouriteQuotations.value = list!!*/
+        viewModelScope.launch{
+            favouritesRepository.removeQuotation(favouriteQuotations.value!!.get(position))
+        }
     }
 
     fun deleteAllQuotations(){
-        _favouriteQuotations.value = listOf()
+        //_favouriteQuotations.value = listOf()
+        viewModelScope.launch{
+            favouritesRepository.removeAllFavourites()
+        }
     }
 }

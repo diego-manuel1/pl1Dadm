@@ -13,9 +13,9 @@ class FavouritesRepositoryImpl @Inject constructor(val favouritesDataSource: Fav
         favouritesDataSource.addQuotation(quotation.toDto())
     }
 
-    override fun obtainConcreteFavourite(id: String): Flow<Quotation> {
+    override fun obtainConcreteFavourite(id: String): Flow<Quotation?> {
         val flowQuotationDto = favouritesDataSource.obtainConcreteFavourite(id)
-        return flowQuotationDto.map { quotationDto -> quotationDto.toDomain()}
+        return flowQuotationDto.map { quotationDto -> quotationDto?.toDomain() ?: null }
     }
 
     override fun obtainFavourites(): Flow<List<Quotation>> {

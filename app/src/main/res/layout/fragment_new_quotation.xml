@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/add_cita"
             android:layout_gravity="bottom|end"
+            android:visibility="invisible"
             android:contentDescription="@string/addDescription">
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </FrameLayout>

@@ -16,7 +16,7 @@ interface FavouritesDao {
     @Query("SELECT * FROM ${FAVOURITES_TABLE_NAME}")
     fun obtainFavourites(): Flow<List<QuotationDto>>
     @Query("SELECT * FROM $FAVOURITES_TABLE_NAME WHERE $FAVOURITES_COL_ID = :id")
-    fun obtainConcreteFavourite(id: String):Flow<QuotationDto>
+    fun obtainConcreteFavourite(id: String):Flow<QuotationDto?>
     @Query("DELETE FROM $FAVOURITES_TABLE_NAME")
     fun removeAllFavourites()
 }

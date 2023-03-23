@@ -1,17 +1,21 @@
 package dadm.dmfuegar.pl1dadm.ui.newquotation
 
 import androidx.lifecycle.*
+import dadm.dmfuegar.pl1dadm.data.favourites.FavouritesRepository
+import dadm.dmfuegar.pl1dadm.data.newquotation.NewQuotationManager
 import dadm.dmfuegar.pl1dadm.data.newquotation.NewQuotationRepository
+import dadm.dmfuegar.pl1dadm.data.settings.SettingsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dadm.dmfuegar.pl1dadm.domain.model.Quotation
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NewQuotationViewModel @Inject constructor(val newQuotationRepos: NewQuotationRepository) : ViewModel() {
-    private val _userName = MutableLiveData<String>(getUserName())
+class NewQuotationViewModel @Inject constructor(val settingsRepository: SettingsRepository, val newQuotationManager: NewQuotationManager, val favouritesRepository: FavouritesRepository) : ViewModel() {
+    /*private val _userName = MutableLiveData<String>(getUserName())
     val userName : LiveData<String>
-    get() = _userName
+    get() = _userName*/
+    val userName = settingsRepository.getUsername().asLiveData()
 
     private val _quotation = MutableLiveData<Quotation>()
     val quotation : LiveData<Quotation>
@@ -21,9 +25,15 @@ class NewQuotationViewModel @Inject constructor(val newQuotationRepos: NewQuotat
     val isRefreshing : LiveData<Boolean>
     get() = _isRefreshing
 
-    private val _showAddFavorite = MutableLiveData<Boolean>()
+    /*private val _showAddFavorite = MutableLiveData<Boolean>()
     val showAddFavorite : LiveData<Boolean>
-    get() = _showAddFavorite
+    get() = _showAddFavorite*/
+    val showAddFavorite = quotation.switchMap() { newQuotation ->
+        favouritesRepository.obtainConcreteFavourite(newQuotation.id).asLiveData()
+    }.map() { favourite ->
+        favourite == null
+    }
+
 
     private val _errorToShow = MutableLiveData<Throwable?>()
     val errorToShow : LiveData<Throwable?>
@@ -49,9 +59,9 @@ class NewQuotationViewModel @Inject constructor(val newQuotationRepos: NewQuotat
        resetError()
        viewModelScope.launch{
            _isRefreshing.value = true
-           newQuotationRepos.getNewQuotation().fold(onSuccess = {q->
+           newQuotationManager.getNewQuotation().fold(onSuccess = {q->
                _quotation.value = q
-               _showAddFavorite.value = true
+               //showAddFavorite.value = true
            },
                onFailure = {error->
                    _errorToShow.value = error
@@ -61,7 +71,10 @@ class NewQuotationViewModel @Inject constructor(val newQuotationRepos: NewQuotat
        }
     }
     fun addToFavourites(){
-        _showAddFavorite.value = false
+        viewModelScope.launch{
+            quotation.value?.let { favouritesRepository.addQuotation(it) }
+            //_showAddFavorite.value = false
+        }
     }
 
     fun resetError(){

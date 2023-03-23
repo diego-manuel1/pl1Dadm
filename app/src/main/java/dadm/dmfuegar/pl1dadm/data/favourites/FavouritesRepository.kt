@@ -8,6 +8,6 @@ interface FavouritesRepository {
     suspend fun addQuotation(quotation: Quotation)
     suspend fun removeQuotation(quotation: Quotation)
     fun obtainFavourites(): Flow<List<Quotation>>
-    fun obtainConcreteFavourite(id: String): Flow<Quotation>
+    fun obtainConcreteFavourite(id: String): Flow<Quotation?>
     fun removeAllFavourites()
 }

@@ -12,7 +12,9 @@
         android:title="@string/titleSelectorLanguage"
         android:key="languageSelector"
         app:useSimpleSummaryProvider="true"
-        android:defaultValue="en">
+        android:defaultValue="@string/EnglishPrefix"
+        android:entries="@array/languageName"
+        android:entryValues="@array/languagePrefix">
 
     </ListPreference>
 </PreferenceScreen>
