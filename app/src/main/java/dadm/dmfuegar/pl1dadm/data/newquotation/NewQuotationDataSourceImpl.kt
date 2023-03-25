@@ -28,13 +28,8 @@ class NewQuotationDataSourceImpl @Inject constructor(val retrofit: Retrofit): Ne
             return retrofitQuotationService.getQuotation(language)
         }
         catch(e:Exception){
-            return Response.error(400, // Could be any other code and text, because we are not using it
+            return Response.error(405, // Could be any other code and text, because we are not using it
                 ResponseBody.create(MediaType.parse("text/plain"), e.toString()))
         }
-    }
-
-    interface NewQuotationRetrofit{
-        @GET("api/1.0/?method=getQuote&format=json&")
-        fun getQuotation(@Query("lang")language: String): Response<QuotationDto>
     }
 }

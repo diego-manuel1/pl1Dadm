@@ -15,13 +15,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.IOException
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 class NewQuotationProviderModule {
     @Singleton
     @Provides
     fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager{
-        return context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        return (context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager)
     }
     @Singleton
     @Provides
