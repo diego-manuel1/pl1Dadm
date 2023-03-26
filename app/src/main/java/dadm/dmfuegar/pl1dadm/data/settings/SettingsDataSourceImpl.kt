@@ -36,6 +36,7 @@ class SettingsDataSourceImpl @Inject constructor(val sharedPreferences: SharedPr
                 }
             }
         }
+        System.out.println("Cambiando lenguaje")
         sharedPreferences.registerOnSharedPreferenceChangeListener(listener)
         trySend(getLanguagePreference())
         awaitClose {
@@ -44,5 +45,11 @@ class SettingsDataSourceImpl @Inject constructor(val sharedPreferences: SharedPr
 
     private fun getUsernamePreference() = sharedPreferences.getString(PreferenceKeys.USER_NAME, "")?:""
 
-    private fun getLanguagePreference() = sharedPreferences.getString(PreferenceKeys.LANGUAGE, "")?:""
+    private fun getLanguagePreference(): String {
+
+        val language = sharedPreferences.getString(PreferenceKeys.LANGUAGE, "")?:""
+        System.out.println("getLanguagePreference: " + language)
+        return language
+    }
+
 }

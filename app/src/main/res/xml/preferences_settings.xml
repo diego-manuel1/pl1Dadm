@@ -5,16 +5,12 @@
     android:title="@string/titleUserPreference"
     android:key="userName"
     app:useSimpleSummaryProvider="true"
-    android:hint="@string/hintUserPreference">
-
-</EditTextPreference>
+    android:hint="@string/hintUserPreference"/>
     <ListPreference
         android:title="@string/titleSelectorLanguage"
         android:key="languageSelector"
         app:useSimpleSummaryProvider="true"
         android:defaultValue="@string/EnglishPrefix"
         android:entries="@array/languageName"
-        android:entryValues="@array/languagePrefix">
-
-    </ListPreference>
+        android:entryValues="@array/languagePrefix"/>
 </PreferenceScreen>
