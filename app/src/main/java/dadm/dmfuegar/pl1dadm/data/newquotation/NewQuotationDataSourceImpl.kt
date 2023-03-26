@@ -15,15 +15,6 @@ class NewQuotationDataSourceImpl @Inject constructor(val retrofit: Retrofit): Ne
     private val retrofitQuotationService =
         retrofit.create(NewQuotationRetrofit::class.java)
     override suspend fun getQuotation(language: String): Response<QuotationDto> {
-       /* val success = (0..10).random()
-        if(success <= 9){
-            val num = (0..99).random().toString()
-            val quotation = Quotation(num, "Quotation text #$num", "Author #$num")
-            return Result.success(quotation)
-        }
-        else{
-            return Result.failure(Exception())
-        }*/
         try{
             return retrofitQuotationService.getQuotation(language)
         }

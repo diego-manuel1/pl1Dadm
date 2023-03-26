@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface NewQuotationRetrofit {
     @GET("api/1.0/?method=getQuote&format=json")
-    fun getQuotation(@Query("lang") language: String): Response<QuotationDto>
+    suspend fun getQuotation(@Query("lang") language: String): Response<QuotationDto>
 }
